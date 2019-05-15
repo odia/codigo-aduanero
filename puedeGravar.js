@@ -15,6 +15,10 @@ function maximizaValorAgregado(impuesto) {
 }
 
 function faltaGuita() {
-  // Demasiado nunca es suficiente
-  return poderEjecutivo.faltaGuita();
+  // 1984 - Vuelta de la Democracia
+  return hayEmergenciaEconomica();
+}
+
+function hayEmergenciaEconomica() {
+  return poderLegislativo.hayEmergenciaEconomica();
 }
