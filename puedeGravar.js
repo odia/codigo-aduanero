@@ -20,5 +20,6 @@ function faltaGuita() {
 }
 
 function hayEmergenciaEconomica() {
-  return poderLegislativo.hayEmergenciaEconomica();
+  // 1989 - Ley de Emergencia económica
+  return true;
 }
