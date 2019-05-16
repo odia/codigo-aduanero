@@ -4,13 +4,26 @@ function puedeGravar(autoridad, impuesto) {
   // Sí: 16 años después
   if (autoridad.esPoderEjecutivo() && impuesto.esPorDNU()) {
 
-    if (cumpleCon755(autoridad, impuesto)) {
+    // Diciembre 2018 - Presupuesto 2019
+    if (cumpleCon755(autoridad, impuesto) &&
+        // 2016 - Fallo Camaronera Patagónica
+        cumpleConCamaronera(autoridad, impuesto) &&
+        esNuevo(impuesto)) {
+
       return comisionBicameral.autoriza(impuesto);
     }
   }
 
   // CN 1853 - Art. 75
   return autoridad.esPoderLegislativo();
+}
+
+function cumpleConCamaronera(autoridad, impuesto) {
+  return impuesto.tieneLimites() && autoridad.tienePautas(impuesto);
+}
+
+function esNuevo(impuesto) {
+  return !impuesto.objeto.existeGravamen();
 }
 
 function cumpleCon755(autoridad, impuesto) {
